@@ -12,7 +12,7 @@ PGID=$(id -g)
 UPLOADER=modem7
 IMG=alpine:3.16
 SCRIPT=./borgmatic/borgmatic_wheels.sh
-PKG_URL=https://raw.githubusercontent.com/borgmatic-collective/pypi-cache/gh-pages/packages
+PKG_URL=https://raw.githubusercontent.com/borgmatic-collective/pypi/gh-pages/packages
 # https://github.com/docker-library/official-images#architectures-other-than-amd64
 ALPINE_X86=${IMG}
 # ALPINE_ARMV6=arm32v6/${IMG} - builds for armv6 and armv7 both come under armv7l

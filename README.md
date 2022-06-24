@@ -4,7 +4,7 @@ Static PyPI repository for Borgmatic Python packages. Built with [dumb-pypi](htt
 
 ## Web interface.
 
-See https://borgmatic-collective.github.io/pypi-cache/
+See https://borgmatic-collective.github.io/pypi/
 
 ## Updating the static pages with new packages.
 
@@ -23,7 +23,7 @@ See https://borgmatic-collective.github.io/pypi-cache/
     - `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`
 
 ### Clone the repo:
-`git clone https://github.com/borgmatic-collective/pypi-cache.git && cd pypi-cache`
+`git clone https://github.com/borgmatic-collective/pypi.git && cd pypi-cache`
 
 ### Run the script. 
 This will build the wheels for multiple architectures, and create a suitable gh-pages set of files.
@@ -31,12 +31,12 @@ This will build the wheels for multiple architectures, and create a suitable gh-
 `./build_borg_wheels.sh`
 
 ### Using the index:
-In the requirements.txt of the end install, you'll need to add: `--extra-index-url https://borgmatic-collective.github.io/pypi-cache/simple`
+In the requirements.txt of the end install, you'll need to add: `--extra-index-url https://borgmatic-collective.github.io/pypi/simple`
 
 E.g.
 
 ```
---extra-index-url https://borgmatic-collective.github.io/pypi-cache/simple
+--extra-index-url https://borgmatic-collective.github.io/pypi/simple
 
 llfuse==1.4.2
 borgbackup==1.2.1
