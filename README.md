@@ -1,6 +1,9 @@
 # PyPI repository.
 
-Static PyPI repository for Borgmatic Python packages. Built with [dumb-pypi](https://github.com/chriskuehl/dumb-pypi) and hosted with GitHub Pages.
+[![GitHub last commit](https://img.shields.io/github/last-commit/borgmatic-collective/pypi)](Pypi)
+[![pages-build-deployment](https://github.com/borgmatic-collective/pypi/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/borgmatic-collective/pypi/actions/workflows/pages/pages-build-deployment)
+
+Static PyPI repository for [Borgmatic](https://github.com/borgmatic-collective/docker-borgmatic) Python packages. Built with [dumb-pypi](https://github.com/chriskuehl/dumb-pypi) and hosted with GitHub Pages.
 
 ## Web interface.
 
