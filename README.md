@@ -33,7 +33,7 @@ This will build the wheels for multiple architectures, and create a suitable gh-
 ### Using the index:
 In the requirements.txt of the end install, you'll need to add: `--extra-index-url https://borgmatic-collective.github.io/pypi/simple`
 
-E.g.
+Example requirements.txt:
 
 ```
 --extra-index-url https://borgmatic-collective.github.io/pypi/simple
