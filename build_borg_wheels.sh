@@ -10,7 +10,7 @@
 PUID=$(id -u)
 PGID=$(id -g)
 UPLOADER=modem7
-IMG=alpine:3.16
+IMG=python:3.10-alpine3.16
 PLATFORMARM32="linux/arm/v7"
 PLATFORMARM64="linux/arm64/v8"
 PLATFORMAMD64="linux/amd64"
@@ -18,9 +18,9 @@ SCRIPT=./borgmatic/borgmatic_wheels.sh
 PKG_URL=https://raw.githubusercontent.com/borgmatic-collective/pypi/main/packages
 # https://github.com/docker-library/official-images#architectures-other-than-amd64
 
-docker run --rm --platform $PLATFORMARM32 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
-docker run --rm --platform $PLATFORMARM64 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
-docker run --rm --platform $PLATFORMAMD64 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
+docker run --rm --name "x86" --platform $PLATFORMARM32 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
+docker run --rm --name "arm32" --platform $PLATFORMARM64 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
+docker run --rm --name "arm64" --platform $PLATFORMAMD64 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
 wait
 
 # Create package.json
