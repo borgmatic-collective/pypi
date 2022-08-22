@@ -33,6 +33,13 @@ This will build the wheels for multiple architectures, and create a suitable gh-
 
 `./build_borg_wheels.sh`
 
+### Push to repo
+```
+git add .
+git commit -m "message"
+git push
+```
+
 ### Using the index:
 In the requirements.txt of the end install, you'll need to add: `--extra-index-url https://borgmatic-collective.github.io/pypi/simple`
 
