@@ -4,5 +4,5 @@
 
 llfuse==1.4.2
 borgbackup==1.2.2
-borgmatic==1.7.2
+borgmatic==1.7.3
 apprise==1.1.0
