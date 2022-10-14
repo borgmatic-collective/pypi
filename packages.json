@@ -18,7 +18,8 @@
 {"filename": "borgmatic-1.6.6-py3-none-any.whl", "upload_timestamp": 1658318240, "uploaded_by": "modem7"}
 {"filename": "borgmatic-1.7.1-py3-none-any.whl", "upload_timestamp": 1661471966, "uploaded_by": "modem7"}
 {"filename": "borgmatic-1.7.2-py3-none-any.whl", "upload_timestamp": 1662713234, "uploaded_by": "modem7"}
-{"filename": "borgmatic-1.7.3-py3-none-any.whl", "upload_timestamp": 1665684589, "uploaded_by": "modem7"}
+{"filename": "borgmatic-1.7.3-py3-none-any.whl", "upload_timestamp": 1665685648, "uploaded_by": "modem7"}
+{"filename": "borgmatic-1.7.4-py3-none-any.whl", "upload_timestamp": 1665791852, "uploaded_by": "modem7"}
 {"filename": "certifi-2022.6.15-py3-none-any.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
 {"filename": "certifi-2022.6.15.1-py3-none-any.whl", "upload_timestamp": 1662713234, "uploaded_by": "modem7"}
 {"filename": "certifi-2022.9.24-py3-none-any.whl", "upload_timestamp": 1665396835, "uploaded_by": "modem7"}
@@ -67,6 +68,7 @@
 {"filename": "setuptools-65.2.0-py3-none-any.whl", "upload_timestamp": 1661178669, "uploaded_by": "modem7"}
 {"filename": "setuptools-65.3.0-py3-none-any.whl", "upload_timestamp": 1661471966, "uploaded_by": "modem7"}
 {"filename": "setuptools-65.4.1-py3-none-any.whl", "upload_timestamp": 1665396835, "uploaded_by": "modem7"}
+{"filename": "setuptools-65.5.0-py3-none-any.whl", "upload_timestamp": 1665791852, "uploaded_by": "modem7"}
 {"filename": "six-1.16.0-py2.py3-none-any.whl", "upload_timestamp": 1656075804, "uploaded_by": "modem7"}
 {"filename": "urllib3-1.26.9-py2.py3-none-any.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
 {"filename": "urllib3-1.26.10-py2.py3-none-any.whl", "upload_timestamp": 1658245430, "uploaded_by": "modem7"}
