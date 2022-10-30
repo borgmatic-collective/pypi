@@ -18,6 +18,8 @@ SCRIPT=./borgmatic/borgmatic_wheels.sh
 PKG_URL=https://raw.githubusercontent.com/borgmatic-collective/pypi/main/packages
 # https://github.com/docker-library/official-images#architectures-other-than-amd64
 
+sudo chown -R $PUID:$PGID .
+
 docker run --rm --name "x86" --platform $PLATFORMARM32 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
 docker run --rm --name "arm32" --platform $PLATFORMARM64 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
 docker run --rm --name "arm64" --platform $PLATFORMAMD64 -v "$(pwd)":/data -w /data $IMG sh -c $SCRIPT &
