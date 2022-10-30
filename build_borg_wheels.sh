@@ -10,7 +10,7 @@
 PUID=$(id -u)
 PGID=$(id -g)
 UPLOADER=modem7
-IMG=python:3.10.8-alpine3.16
+IMG=python:3.11.0-alpine3.16
 PLATFORMARM32="linux/arm/v7"
 PLATFORMARM64="linux/arm64/v8"
 PLATFORMAMD64="linux/amd64"
