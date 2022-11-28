@@ -1,7 +1,7 @@
 {"filename": "apprise-0.9.9-py2.py3-none-any.whl", "upload_timestamp": 1656075804, "uploaded_by": "modem7"}
 {"filename": "apprise-1.0.0-py2.py3-none-any.whl", "upload_timestamp": 1659947107, "uploaded_by": "modem7"}
 {"filename": "apprise-1.1.0-py2.py3-none-any.whl", "upload_timestamp": 1665396835, "uploaded_by": "modem7"}
-{"filename": "apprise-1.2.0-py2.py3-none-any.whl", "upload_timestamp": 1668712043, "uploaded_by": "modem7"}
+{"filename": "apprise-1.2.0-py2.py3-none-any.whl", "upload_timestamp": 1668712333, "uploaded_by": "modem7"}
 {"filename": "attrs-21.4.0-py2.py3-none-any.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
 {"filename": "attrs-22.1.0-py2.py3-none-any.whl", "upload_timestamp": 1659947107, "uploaded_by": "modem7"}
 {"filename": "borgbackup-1.2.0-cp310-cp310-linux_aarch64.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
@@ -24,6 +24,7 @@
 {"filename": "borgmatic-1.7.2-py3-none-any.whl", "upload_timestamp": 1662713234, "uploaded_by": "modem7"}
 {"filename": "borgmatic-1.7.3-py3-none-any.whl", "upload_timestamp": 1665685648, "uploaded_by": "modem7"}
 {"filename": "borgmatic-1.7.4-py3-none-any.whl", "upload_timestamp": 1665791963, "uploaded_by": "modem7"}
+{"filename": "borgmatic-1.7.5-py3-none-any.whl", "upload_timestamp": 1669604439, "uploaded_by": "modem7"}
 {"filename": "certifi-2022.6.15-py3-none-any.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
 {"filename": "certifi-2022.6.15.1-py3-none-any.whl", "upload_timestamp": 1662713234, "uploaded_by": "modem7"}
 {"filename": "certifi-2022.9.24-py3-none-any.whl", "upload_timestamp": 1665396835, "uploaded_by": "modem7"}
@@ -42,7 +43,8 @@
 {"filename": "jsonschema-4.14.0-py3-none-any.whl", "upload_timestamp": 1661178669, "uploaded_by": "modem7"}
 {"filename": "jsonschema-4.15.0-py3-none-any.whl", "upload_timestamp": 1662713234, "uploaded_by": "modem7"}
 {"filename": "jsonschema-4.16.0-py3-none-any.whl", "upload_timestamp": 1665396835, "uploaded_by": "modem7"}
-{"filename": "jsonschema-4.17.0-py3-none-any.whl", "upload_timestamp": 1668712043, "uploaded_by": "modem7"}
+{"filename": "jsonschema-4.17.0-py3-none-any.whl", "upload_timestamp": 1668712333, "uploaded_by": "modem7"}
+{"filename": "jsonschema-4.17.1-py3-none-any.whl", "upload_timestamp": 1669604439, "uploaded_by": "modem7"}
 {"filename": "llfuse-1.4.2-cp310-cp310-linux_aarch64.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
 {"filename": "llfuse-1.4.2-cp310-cp310-linux_armv7l.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
 {"filename": "llfuse-1.4.2-cp310-cp310-linux_x86_64.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
@@ -68,7 +70,7 @@
 {"filename": "pyrsistent-0.18.1-cp311-cp311-linux_aarch64.whl", "upload_timestamp": 1666701084, "uploaded_by": "modem7"}
 {"filename": "pyrsistent-0.18.1-cp311-cp311-linux_armv7l.whl", "upload_timestamp": 1666701084, "uploaded_by": "modem7"}
 {"filename": "pyrsistent-0.18.1-cp311-cp311-linux_x86_64.whl", "upload_timestamp": 1666701084, "uploaded_by": "modem7"}
-{"filename": "pyrsistent-0.19.2-py3-none-any.whl", "upload_timestamp": 1668712043, "uploaded_by": "modem7"}
+{"filename": "pyrsistent-0.19.2-py3-none-any.whl", "upload_timestamp": 1668712333, "uploaded_by": "modem7"}
 {"filename": "PyYAML-6.0-cp310-cp310-linux_aarch64.whl", "upload_timestamp": 1656075804, "uploaded_by": "modem7"}
 {"filename": "PyYAML-6.0-cp310-cp310-linux_armv7l.whl", "upload_timestamp": 1656075804, "uploaded_by": "modem7"}
 {"filename": "PyYAML-6.0-cp310-cp310-linux_x86_64.whl", "upload_timestamp": 1656075804, "uploaded_by": "modem7"}
@@ -92,9 +94,11 @@
 {"filename": "setuptools-65.3.0-py3-none-any.whl", "upload_timestamp": 1661471966, "uploaded_by": "modem7"}
 {"filename": "setuptools-65.4.1-py3-none-any.whl", "upload_timestamp": 1665396835, "uploaded_by": "modem7"}
 {"filename": "setuptools-65.5.0-py3-none-any.whl", "upload_timestamp": 1665791963, "uploaded_by": "modem7"}
-{"filename": "setuptools-65.5.1-py3-none-any.whl", "upload_timestamp": 1668712043, "uploaded_by": "modem7"}
+{"filename": "setuptools-65.5.1-py3-none-any.whl", "upload_timestamp": 1668712333, "uploaded_by": "modem7"}
+{"filename": "setuptools-65.6.3-py3-none-any.whl", "upload_timestamp": 1669604439, "uploaded_by": "modem7"}
 {"filename": "six-1.16.0-py2.py3-none-any.whl", "upload_timestamp": 1656075804, "uploaded_by": "modem7"}
 {"filename": "urllib3-1.26.9-py2.py3-none-any.whl", "upload_timestamp": 1656041407, "uploaded_by": "modem7"}
 {"filename": "urllib3-1.26.10-py2.py3-none-any.whl", "upload_timestamp": 1658245430, "uploaded_by": "modem7"}
 {"filename": "urllib3-1.26.11-py2.py3-none-any.whl", "upload_timestamp": 1659947107, "uploaded_by": "modem7"}
 {"filename": "urllib3-1.26.12-py2.py3-none-any.whl", "upload_timestamp": 1661178669, "uploaded_by": "modem7"}
+{"filename": "urllib3-1.26.13-py2.py3-none-any.whl", "upload_timestamp": 1669604439, "uploaded_by": "modem7"}
