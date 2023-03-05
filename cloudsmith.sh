@@ -6,6 +6,7 @@ export CLOUDSMITH_API="${CLOUDSMITH_API:-}"
 # Apply extra cron if it's set
 if [ -n CLOUDSMITH_API ]
 then
+    echo 'https://cloudsmith.io/user/settings/api/'
     echo "Enter Cloudsmith API token: "
     read CLOUDSMITH_API
 fi
