@@ -7,7 +7,7 @@ version: 2
 updates:
   # Maintain dependencies for PIP
   - package-ecosystem: "pip"
-    directory: "/borgmatic"
+    directory: "/"
     schedule:
       interval: "daily"
       timezone: "Europe/London"
