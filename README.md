@@ -1,54 +1,46 @@
-# PyPI repository.
+# CIBuildWheel repository.
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/borgmatic-collective/pypi)](Pypi)
-[![pages-build-deployment](https://github.com/borgmatic-collective/pypi/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/borgmatic-collective/pypi/actions/workflows/pages/pages-build-deployment)
+[![GitHub last commit](https://img.shields.io/github/last-commit/modem7/cibuildwheel)](CIBuildWheel) [![Build and upload wheels](https://github.com/modem7/cibuildwheel/actions/workflows/ci.yaml/badge.svg)](https://github.com/modem7/cibuildwheel/actions/workflows/ci.yaml)
 
-Static PyPI repository for [Borgmatic](https://github.com/borgmatic-collective/docker-borgmatic) Python packages. Built with [dumb-pypi](https://github.com/chriskuehl/dumb-pypi) and hosted with GitHub Pages.
+CIBuildWheel repository for [Modem7 Cloudsmith](https://dl.cloudsmith.io/public/modem7/wheels/python/simple/) Python packages. Built with [cibuildwheel](https://cibuildwheel.readthedocs.io) and hosted with [Cloudsmith](https://cloudsmith.io).
 
-## Web interface.
+Recipes and continuous integration (CI) to build [wheels](https://pythonwheels.com/)
+for Python packages that don't provide them on [PyPI](https://pypi.org/).
 
-See https://borgmatic-collective.github.io/pypi/
+## Creating new packages
 
-## Updating the static pages with new packages.
+### Automatic
 
-### Using the update script:
+A package recipe is a simple `meta.yaml` file (in [YAML](https://yaml.org) format), contained in a
+dedicated subdirectory of `recipes/` , specifying the package name and version,
+e.g. the recipe for Mercurial 6.1.1 would be in the file `recipes/mercurial/meta.yaml`
+containing:
 
-`./indexbuild.sh`
-
-# Full instructions on updating python packages:
-
-### Requirements:
-- [QEMU Emulation](https://www.stereolabs.com/docs/docker/building-arm-container-on-x86/#setting-up-arm-emulation-on-x86)
-  - Install the qemu packages:
-    - `sudo apt-get install qemu binfmt-support qemu-user-static`
-
-  - Execute the registering scripts:
-    - `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`
-
-### Clone the repo:
-`git clone https://github.com/borgmatic-collective/pypi.git && cd pypi-cache`
-
-### Run the script. 
-This will build the wheels for multiple architectures, and create a suitable gh-pages set of files.
-
-`./build_borg_wheels.sh`
-
-### Push to repo
-```
-git add .
-git commit -m "message"
-git push
+```yaml
+---
+name: borgbackup
+version: 1.2.3
 ```
 
-### Using the index:
-In the requirements.txt of the end install, you'll need to add: `--extra-index-url https://borgmatic-collective.github.io/pypi/simple`
+When a recipe is added to this repository or updated (via PR), a CI job downloads from
+PyPI the sdist archive for the specified package, and then builds the wheels
+using either [cibuildwheel](https://cibuildwheel.readthedocs.io) (default) or
+[build](https://pypa-build.readthedocs.io) (if it is a pure Python package
+specified with `purepy: true` in the recipe).
 
-Example requirements.txt:
+### Manual
 
-```
---extra-index-url https://borgmatic-collective.github.io/pypi/simple
+To build the wheels manually, run the manual scripts included in the repo.
 
-llfuse==1.4.2
-borgbackup==1.2.1
-borgmatic==1.6.3
-```
+Current scripts:
+- borg.sh
+- llfuse.sh
+- msgpack.sh
+- pyyaml.sh
+- ruamel.yaml.clib.sh
+
+The wheels will be output to the `wheelhouse` folder.
+
+Once you have built the wheels, you can upload using the `cloudsmith.sh` script.
+
+You can find your Cloudsmith API key [here](https://cloudsmith.io/user/settings/api/).
