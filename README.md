@@ -1,6 +1,6 @@
 # CIBuildWheel repository.
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/borgmatic-collective/pypi)](CIBuildWheel) [![Build and upload wheels](https://github.com/modem7/cibuildwheel/actions/workflows/ci.yaml/badge.svg)](https://github.com/modem7/cibuildwheel/actions/workflows/ci.yaml)
+[![GitHub last commit](https://img.shields.io/github/last-commit/borgmatic-collective/pypi)](CIBuildWheel) [![Build and upload wheels](https://github.com/borgmatic-collective/pypi/actions/workflows/ci.yaml/badge.svg)](https://github.com/borgmatic-collective/pypi/actions/workflows/ci.yaml)
 
 CIBuildWheel repository for [Cloudsmith](https://dl.cloudsmith.io/public/borgmatic-collective/borgmatic/python/simple/) Python packages. Built with [cibuildwheel](https://cibuildwheel.readthedocs.io) and hosted with [Cloudsmith](https://cloudsmith.io).
 
