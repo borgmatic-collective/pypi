@@ -1,5 +1,5 @@
 borgbackup==1.4.0
 llfuse==1.5.1
-msgpack==1.0.8
+msgpack==1.1.0
 ruamel.yaml.clib==0.2.8
 PyYAML==6.0.2
