@@ -11,4 +11,4 @@ jobs:
         - name: 'Auto-assign issue'
           uses: pozil/auto-assign-issue@v4
           with:
-            assignees: modem7
+            assignees: modem7,grantbevis
