@@ -1,7 +1,5 @@
 name: Build and upload wheels
 on: [push, pull_request]
-env:
-  CIBW_BUILD: 'cp311-musllinux_*'
 concurrency:
   # Group runs by PR, but keep runs on the default branch separate
   # because we do not want to cancel wheel uploads
@@ -12,10 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       recipes_found: ${{ steps.recipes_changes.outputs.recipes_found }}
+      py_version: ${{ steps.python_version.outputs.py_version }}
+      cp_tag: ${{ steps.python_version.outputs.cp_tag }}
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
+      - name: Fetch Python version from docker-borgmatic Dockerfile
+        id: python_version
+        run: |
+          DOCKERFILE=$(curl -sf "https://raw.githubusercontent.com/borgmatic-collective/docker-borgmatic/master/Dockerfile")
+          PY_VERSION=$(echo "$DOCKERFILE" | grep -oP '(?<=^ARG PYTHON_VERSION=)\d+\.\d+')
+          CP_TAG="cp$(echo "$PY_VERSION" | tr -d '.')"
+          echo "py_version=$PY_VERSION" >> $GITHUB_OUTPUT
+          echo "cp_tag=$CP_TAG" >> $GITHUB_OUTPUT
       # The range of commits to check for changes is:
       # - `origin/main...` for all events happening on a feature branch
       # - for events on the main branch we compare against the sha before the event
@@ -69,6 +77,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
+    env:
+      CIBW_BUILD: '${{ needs.setup.outputs.cp_tag }}-musllinux_*'
     steps:
       - uses: actions/checkout@v7
       - name: Set up QEMU
@@ -77,7 +87,7 @@ jobs:
           platforms: all
       - uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version: '${{ needs.setup.outputs.py_version }}'
       - uses: actions/download-artifact@v8
         with:
           name: recipe_list
@@ -94,44 +104,30 @@ jobs:
           name: wheelhouse
           path: wheelhouse/
 
-  save_all:
+  deploy:
+    name: Deploy Wheels to Cloudsmith
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' && github.repository_owner == 'modem7' }}
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' && github.repository_owner == 'borgmatic-collective' }}
     steps:
-    - uses: actions/checkout@v7
-    - uses: actions/download-artifact@v8
-      with:
-        name: wheelhouse
-        path: wheels
-    - name: Commit and push changes
-      run: |
-        git config --local user.name actions-user
-        git config --local user.email "actions@github.com"
-        if ! git diff --exit-code; then
-          git add wheel/*.whl
-          git commit -am "GH Action Files added $(date)"
-          git push -f origin main
-        fi
-
-  # deploy:
-    # name: Deploy Wheels
-    # needs: build
-    # if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' && github.repository_owner == 'galaxyproject' }}
-    # runs-on: ubuntu-latest
-    # steps:
-      # - uses: actions/download-artifact@v8
-        # with:
-          # name: wheelhouse
-          # path: wheelhouse/
-      # - name: Push
-        # id: push
-        # uses: cloudsmith-io/action@master
-        # with:
-          # api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
-          # command: "push"
-          # format: "python"
-          # owner: "modem7"
-          # repo: "wheels"
-          # republish: "true" # needed ONLY if version is not changing
-          # file: "./wheelhouse/*.whl"
+      - uses: actions/download-artifact@v8
+        with:
+          name: wheelhouse
+          path: wheelhouse/
+      - name: Test Authentication
+        env:
+          CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
+        run: |
+          curl -X GET \
+            -H "Authorization: Bearer $CLOUDSMITH_API_KEY" \
+            https://api.cloudsmith.io/v1/user/self/ \
+            | jq -r '.authenticated'
+      - name: Install Cloudsmith CLI
+        uses: cloudsmith-io/cloudsmith-cli-action@v2
+        with:
+          api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+      - name: Push wheels to Cloudsmith
+        run: |
+          for whl in wheelhouse/*.whl; do
+            cloudsmith push python borgmatic-collective/borgmatic "$whl" --republish
+          done

@@ -3,7 +3,7 @@
 # Variables
 export CLOUDSMITH_API="${CLOUDSMITH_API:-}"
 
-# Apply extra cron if it's set
+# Ask for Cloudsmith API if not already set
 if [ -n CLOUDSMITH_API ]
 then
     echo 'https://cloudsmith.io/user/settings/api/'
@@ -12,12 +12,20 @@ then
 fi
 
 # Prerequesites
+echo "==> Installing prerequisites"
 sudo python3 -m pip install -U cloudsmith-cli
 
 # Upload to Cloudsmith
+echo "==> Uploading wheels to Cloudsmith"
 cd wheelhouse/
 for f in *.whl
 do
   echo "Processing $f file..."
   cloudsmith push python -W -k $CLOUDSMITH_API --no-republish borgmatic-collective/borgmatic "$f"
 done
+
+# Deleting wheels
+echo "==> Deleting wheels now they've been uploaded"
+rm -rf *.whl
+
+exit 0
